@@ -6,6 +6,7 @@
 #include "subtraction_operation.hpp"
 #include "division_operation.hpp"
 #include "multiplication_operation.hpp"
+#include <iostream>
 
 #pragma once
 
@@ -16,27 +17,38 @@ class rpn_calculator {
         int result;
         std::stack <int> stack_calculator;
 
-    private:
         operation* operation_type(char operation)
         {
             switch(operation)
             {
+                abstract_operation* point_operator;
                 case addition_operation::ADDITION_CODE :
-                    addition_operation* addition;
-                    return addition;
+                    point_operator = new addition_operation;
+                    return point_operator;
                 case subtraction_operation::SUBTRACTION_CODE :
-                    addition_operation* subtraction;
-                    return subtraction;
+                    point_operator = new subtraction_operation;
+                    return point_operator;
                 case division_operation::DIVISION_CODE :
-                    addition_operation* division;
-                    return division;
+                    point_operator = new division_operation;
+                    return point_operator;
                 case multiplication_operation::MULTIPLICATION_CODE :
-                    addition_operation* multiplication;
-                    return multiplication;
+                    point_operator = new multiplication_operation;
+                    return point_operator;
             }
         };
 
         void perform(operation* operated)
+        {
+            int right_operand = stack_calculator.top();
+            stack_calculator.pop();
+            int left_operand = stack_calculator.top();
+            stack_calculator.pop();
+            int value = operated->perform(left_operand, right_operand);
+            stack_calculator.push(value);
+        };
+
+    public:
+        int process_formula(std::string formula)
         {
 
         };
