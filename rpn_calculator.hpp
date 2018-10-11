@@ -2,15 +2,14 @@
 // Created by Harmanbir Dhillon on 2018-10-10.
 //
 #include <stack>
+#include <iostream>
+#include <sstream>
 #include "addition_operation.hpp"
 #include "subtraction_operation.hpp"
 #include "division_operation.hpp"
 #include "multiplication_operation.hpp"
-#include <iostream>
-#include <sstream>
 
 #pragma once
-
 
 
 class rpn_calculator {
