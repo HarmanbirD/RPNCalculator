@@ -7,6 +7,7 @@
 #include "division_operation.hpp"
 #include "multiplication_operation.hpp"
 #include <iostream>
+#include <sstream>
 
 #pragma once
 
@@ -50,7 +51,21 @@ class rpn_calculator {
     public:
         int process_formula(std::string formula)
         {
-
+            std::istringstream iss(formula);
+            std::string operand;
+            int sec;
+            while (iss >> operand)
+            {
+                std::istringstream iss2(operand);
+                if (iss2 >> sec)
+                {
+                    stack_calculator.push(sec);
+                } else
+                {
+                    perform(operation_type(operand[0]));
+                }
+            }
+            return stack_calculator.top();
         };
 
 };
