@@ -12,5 +12,5 @@ public:
     static const char SUBTRACTION_CODE{'-'};
     subtraction_operation() : abstract_operation(SUBTRACTION_CODE) {};
     int perform(int x, int y) {return x - y;};
-    virtual inline ~subtraction_operation();
+    virtual inline ~subtraction_operation() {};
 };

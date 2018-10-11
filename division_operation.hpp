@@ -12,5 +12,5 @@ class division_operation : public abstract_operation
         static const char DIVISION_CODE{'/'};
         division_operation() : abstract_operation(DIVISION_CODE) {};
         int perform(int x, int y) {return x / y;};
-        virtual inline ~division_operation();
+        virtual inline ~division_operation() {};
 };
