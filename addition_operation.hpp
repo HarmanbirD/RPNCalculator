@@ -9,7 +9,7 @@
 class addition_operation : public abstract_operation
 {
 public:
-    static const char ADDITION_CODE{'+'};
+    static constexpr char ADDITION_CODE{'+'};
     addition_operation() : abstract_operation(ADDITION_CODE) {};
     int perform(int x, int y) {return x + y;};
     virtual inline ~addition_operation() {};
