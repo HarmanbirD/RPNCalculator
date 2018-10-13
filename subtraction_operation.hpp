@@ -8,9 +8,13 @@
 
 class subtraction_operation : public abstract_operation
 {
-public:
-    static constexpr char SUBTRACTION_CODE{'-'};
-    subtraction_operation() : abstract_operation(SUBTRACTION_CODE) {};
-    int perform(int x, int y) {return x - y;};
-    virtual inline ~subtraction_operation() {};
+    public:
+        //Code for operation
+        static constexpr char SUBTRACTION_CODE{'-'};
+        //Default constructor
+        subtraction_operation() : abstract_operation(SUBTRACTION_CODE) {};
+        //Performs the multiplication between two inputs and returns the result
+        int perform(int x, int y) {return x - y;};
+        //Destructor destroys this object
+        virtual inline ~subtraction_operation() {};
 };
